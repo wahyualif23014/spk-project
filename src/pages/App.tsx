@@ -1,13 +1,25 @@
-import { Link } from "react-router";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Home from "./Home";
+import About from "./About";
 
 function App() {
   return (
-    <div className="flex justify-center flex-col gap-2 items-center h-screen">
-      <h1 className="text-[100px] font-bold">Hello World</h1>
-      <div className="bg-blue">
-        <Link to="/about">About</Link>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="*"
+          element={
+            <div className="flex justify-center items-center h-screen text-[50px] font-bold">
+              404 Not Found
+            </div>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
