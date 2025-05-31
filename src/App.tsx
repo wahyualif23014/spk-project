@@ -1,14 +1,17 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+import React, { useState } from "react";
+// import Navbar from "./components/Navbar";
+import SidebarProps from "./components/Sidebar";
 import DashboardContent from "./components/DashboardContent";
 
 const App: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSidebar = () => setIsOpen(!isOpen);
+
   return (
     <div className="flex">
-      <Sidebar />
+      <SidebarProps isOpen={isOpen} toggleSidebar={toggleSidebar} />
       <div className="flex-1">
-        <Navbar />
+        {/* <Navbar /> */}
         <DashboardContent />
       </div>
     </div>  
