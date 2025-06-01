@@ -3,7 +3,6 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { FiArrowUpRight, FiTrendingUp, FiDollarSign, FiTruck } from "react-icons/fi";
 
 const DashboardContent: React.FC = () => {
-  // Animation controls for sections
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -14,7 +13,6 @@ const DashboardContent: React.FC = () => {
     }
   }, [isInView, controls]);
 
-  // Animation variants
   const container = {
     hidden: { opacity: 0 },
     visible: {
