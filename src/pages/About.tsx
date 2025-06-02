@@ -1,9 +1,9 @@
-const About = () => {
+const AboutPage = () => {
   return (
-    <div className="flex justify-center items-center h-[80vh]">
-      <h1 className="text-4xl font-bold">About Page</h1>
+    <div className="text-center flex justify-center items-center h-screen text-[100px] font-bold">
+      AboutPage
     </div>
   );
 };
 
-export default About;
+export default AboutPage;
