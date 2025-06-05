@@ -1,36 +1,35 @@
 // src/context/AuthContext.tsx
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-interface AuthContextProps {
+interface AuthContextType {
   isAuthenticated: boolean;
-  login: (userId: string, role: "admin" | "user") => void;
+  userId: string;
+  role: string;
+  login: (id: string, role: string) => void;
   logout: () => void;
-  userRole: string;
 }
 
-const AuthContext = createContext<AuthContextProps>({
-  isAuthenticated: false,
-  login: () => {},
-  logout: () => {},
-  userRole: ""
-});
+const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [userRole, setUserRole] = useState("");
+  const [userId, setUserId] = useState("");
+  const [role, setRole] = useState("");
 
-  const login = (userId: string, role: "admin" | "user") => {
+  const login = (id: string, role: string) => {
     setIsAuthenticated(true);
-    setUserRole(role);
+    setUserId(id);
+    setRole(role);
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    setUserRole("");
+    setUserId("");
+    setRole("");
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, userRole }}>
+    <AuthContext.Provider value={{ isAuthenticated, userId, role, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
