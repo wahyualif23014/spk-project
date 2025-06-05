@@ -1,72 +1,70 @@
 import React, { useState } from "react";
-import "../styles/DataUserForm.css"; // untuk animasi tambahan
+import "../styles/DataUserForm.css"; // Pastikan file ini mengandung tema dark elegan
 
-const DataUser: React.FC = () => {
-  const [role, setRole] = useState("user");
+const DataUseForm: React.FC = () => {
+  const [formData, setFormData] = useState({
+    nama: "",
+    email: "",
+    noHp: "",
+    alamat: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`User berhasil ditambahkan sebagai ${role}`);
+    alert(`Data Terkirim:\nNama: ${formData.nama}\nEmail: ${formData.email}\nNo HP: ${formData.noHp}\nAlamat: ${formData.alamat}`);
+    setFormData({ nama: "", email: "", noHp: "", alamat: "" });
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 animate-fade-in">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-md bg-white p-8 rounded-lg shadow-2xl transform transition-all duration-500 scale-in"
-      >
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Tambah Pengguna Baru
-        </h2>
-
-        <div className="mb-4">
-          <label className="block mb-1 text-gray-700">ID User</label>
+    <div className="subkriteria-container">
+      <div className="subkriteria-form fade-in">
+        <h1 className="title">Data user baru</h1>
+        <form onSubmit={handleSubmit}>
+          <label>Nama</label>
           <input
             type="text"
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="nama"
+            value={formData.nama}
+            onChange={handleChange}
             required
           />
-        </div>
 
-        <div className="mb-4">
-          <label className="block mb-1 text-gray-700">Username</label>
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+
+          <label>No HP</label>
+          <input
+            type="tel"
+            name="noHp"
+            value={formData.noHp}
+            onChange={handleChange}
+            required
+          />
+
+          <label>Alamat</label>
           <input
             type="text"
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            name="alamat"
+            value={formData.alamat}
+            onChange={handleChange}
             required
           />
-        </div>
 
-        <div className="mb-4">
-          <label className="block mb-1 text-gray-700">Password</label>
-          <input
-            type="password"
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            required
-          />
-        </div>
-
-        <div className="mb-6">
-          <label className="block mb-1 text-gray-700">Role</label>
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="admin">Admin</option>
-            <option value="user">User Biasa</option>
-          </select>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-        >
-          Simpan Pengguna
-        </button>
-      </form>
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default DataUser;
+export default DataUseForm;

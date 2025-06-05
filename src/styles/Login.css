@@ -1,18 +1,18 @@
-.subkriteria-container {
+.login-container {
   min-height: 100vh;
-  background: #0f172a;
+  background-color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
 }
 
-.subkriteria-form {
+.login-form {
   background-color: #1e293b;
   padding: 40px;
   border-radius: 16px;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   color: #f1f5f9;
 }
@@ -24,15 +24,14 @@
   text-align: center;
 }
 
-form label {
+label {
   display: block;
-  margin-bottom: 6px;
   margin-top: 20px;
   font-size: 0.95rem;
   color: #cbd5e1;
 }
 
-form input {
+input {
   width: 100%;
   padding: 10px 14px;
   border-radius: 8px;
@@ -41,10 +40,10 @@ form input {
   color: #f8fafc;
   outline: none;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  margin-top: 8px;
 }
 
-form input:focus {
+input:focus {
   background-color: #475569;
 }
 
@@ -59,15 +58,10 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #eab308;
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -79,4 +73,8 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
 }

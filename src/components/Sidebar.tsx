@@ -6,7 +6,7 @@ const Sidebar: React.FC = () => {
 
   const menuItems = [
     { name: "Dashboard", path: "/dashboard" },
-    { name: "Data User", path: "/data-user" },
+    { name: "Data User Baru", path: "/data-user" },
     { name: "Data Kriteria", path: "/data-kriteria" },
     { name: "Data Sub", path: "/data-sub" },
     { name: "Data Alternatif", path: "/data-alternatif" },
